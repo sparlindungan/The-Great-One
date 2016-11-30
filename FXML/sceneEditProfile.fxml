@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignEditProfileControl">
+  <children>
+    <Label layoutX="129.0" layoutY="15.0" text="Edit Profile" textFill="#996e00">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+    <HBox layoutX="13.0" layoutY="67.0" prefHeight="40.0" prefWidth="372.0">
+      <children>
+        <Label text="Major">
+          <HBox.margin>
+            <Insets top="10.0" />
+          </HBox.margin>
+        </Label>
+        <ComboBox fx:id="comboBoxEditProfileMajor" onAction="#updateDepartment" prefHeight="21.0" prefWidth="142.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+          <HBox.margin>
+            <Insets left="85.0" top="10.0" />
+          </HBox.margin>
+        </ComboBox>
+      </children>
+    </HBox>
+    <HBox layoutX="14.0" layoutY="118.0" prefHeight="40.0" prefWidth="372.0">
+      <children>
+        <Label text="Year">
+          <HBox.margin>
+            <Insets top="10.0" />
+          </HBox.margin>
+        </Label>
+        <ComboBox fx:id="comboBoxEditProfileYear" prefHeight="21.0" prefWidth="143.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+          <HBox.margin>
+            <Insets left="90.0" top="10.0" />
+          </HBox.margin>
+        </ComboBox>
+      </children>
+    </HBox>
+    <HBox layoutX="14.0" layoutY="169.0" prefHeight="40.0" prefWidth="372.0">
+      <children>
+        <Label text="Department">
+          <HBox.margin>
+            <Insets top="10.0" />
+          </HBox.margin>
+        </Label>
+        <Label fx:id="labelEditProfileDepartment" text="Department Placeholder">
+          <HBox.margin>
+            <Insets left="50.0" top="10.0" />
+          </HBox.margin>
+        </Label>
+      </children>
+    </HBox>
+    <Button fx:id="buttonReturnToMe" layoutX="165.0" layoutY="250.0" mnemonicParsing="false" onAction="#saveAndReturn" text="Back" />
+  </children>
+</AnchorPane>

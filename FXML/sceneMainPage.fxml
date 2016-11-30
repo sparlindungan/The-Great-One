@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignMainControl">
+  <children>
+    <HBox layoutX="14.0" layoutY="14.0" prefHeight="86.0" prefWidth="772.0">
+      <children>
+        <ImageView id="imageViewMe" fx:id="imageViewUser" fitHeight="72.75" fitWidth="97.0" onMouseClicked="#launchMeWindow" onMouseEntered="#setMouseClickable" onMouseExited="#setMouseNormal" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@img/placeholder2.png" />
+          </image>
+          <HBox.margin>
+            <Insets top="5.0" />
+          </HBox.margin>
+        </ImageView>
+        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" text="Me" textFill="#996e00">
+          <font>
+            <Font size="30.0" />
+          </font>
+          <HBox.margin>
+            <Insets left="15.0" top="20.0" />
+          </HBox.margin>
+        </Label>
+      </children>
+    </HBox>
+    <HBox layoutX="26.0" layoutY="176.0" prefHeight="22.0" prefWidth="233.0">
+      <children>
+        <Label text="Designation" />
+        <ComboBox fx:id="comboBoxDesignation">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+          <HBox.margin>
+            <Insets left="10.0" fx:id="x1" />
+          </HBox.margin>
+        </ComboBox>
+      </children>
+    </HBox>
+    <HBox layoutX="26.0" layoutY="108.0" prefHeight="40.0" prefWidth="760.0">
+      <children>
+        <Label text="Title" />
+        <TextField fx:id="textFieldTitle" prefWidth="200.0" HBox.margin="$x1" />
+        <Label text="Category">
+          <HBox.margin>
+            <Insets left="300.0" />
+          </HBox.margin>
+        </Label>
+        <ComboBox HBox.margin="$x1">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Label text="Add A Category" textFill="#3354ff" underline="true" wrapText="false" HBox.margin="$x1" />
+      </children>
+    </HBox>
+    <HBox layoutX="26.0" layoutY="212.0" minHeight="16.0" prefHeight="32.0" prefWidth="233.0">
+      <children>
+        <Label text="Major" />
+        <ComboBox fx:id="comboBoxMajor">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+          <HBox.margin>
+            <Insets left="43.0" />
+          </HBox.margin>
+        </ComboBox>
+      </children>
+    </HBox>
+    <HBox layoutX="26.0" layoutY="252.0" prefHeight="40.0" prefWidth="200.0">
+      <children>
+        <Label text="Year" />
+        <ComboBox fx:id="comboBoxYear">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+          <HBox.margin>
+            <Insets left="50.0" />
+          </HBox.margin>
+        </ComboBox>
+      </children>
+    </HBox>
+    <Button fx:id="buttonApplyFilter" layoutX="531.0" layoutY="250.0" mnemonicParsing="false" onAction="#applyFilter" text="Apply Filer" />
+    <Button fx:id="buttonResetFilter" layoutX="625.0" layoutY="251.0" mnemonicParsing="false" onAction="#resetFilter" text="Reset Filter" />
+    <TableView fx:id="tableViewMain" layoutX="26.0" layoutY="316.0" onMouseEntered="#setMouseClickable" onMouseExited="#setMouseNormal" prefHeight="247.0" prefWidth="746.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Column X" />
+        <TableColumn prefWidth="75.0" text="Column X" />
+      </columns>
+    </TableView>
+    <HBox layoutX="531.0" layoutY="218.0" prefHeight="21.0" prefWidth="200.0">
+      <children>
+        <RadioButton fx:id="radioButtonProject" mnemonicParsing="false" text="Project" />
+        <RadioButton fx:id="radioButtonCourse" mnemonicParsing="false" text="Course">
+          <HBox.margin>
+            <Insets left="10.0" fx:id="x1" />
+          </HBox.margin>
+        </RadioButton>
+        <RadioButton fx:id="radioButtonBoth" mnemonicParsing="false" text="Both" HBox.margin="$x1" />
+      </children>
+    </HBox>
+  </children>
+</AnchorPane>

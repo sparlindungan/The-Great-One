@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignRegControl">
+  <children>
+    <HBox layoutX="153.0" layoutY="83.0" prefHeight="23.0" prefWidth="292.0">
+      <children>
+        <Label prefWidth="78.0" text="Username" />
+        <TextField fx:id="textFieldRegUname" alignment="CENTER_LEFT" prefWidth="200.0">
+          <HBox.margin>
+            <Insets left="45.0" />
+          </HBox.margin>
+        </TextField>
+      </children>
+    </HBox>
+    <HBox layoutX="153.0" layoutY="119.0" prefHeight="29.0" prefWidth="294.0">
+      <children>
+        <Label text="GT Email Address" />
+        <TextField fx:id="textFieldRegEmail" prefWidth="185.0">
+          <HBox.margin>
+            <Insets left="15.0" />
+          </HBox.margin>
+        </TextField>
+      </children>
+    </HBox>
+    <HBox layoutX="153.0" layoutY="161.0" prefHeight="23.0" prefWidth="336.0">
+      <children>
+        <Label text="Password" />
+        <PasswordField fx:id="pwdFieldRegPwd" prefWidth="191.0">
+          <HBox.margin>
+            <Insets left="55.0" />
+          </HBox.margin>
+        </PasswordField>
+      </children>
+    </HBox>
+    <HBox layoutX="153.0" layoutY="200.0" prefHeight="23.0" prefWidth="347.0">
+      <children>
+        <Label text="Confirm Password" />
+        <PasswordField fx:id="pwdFieldRegPwdConfirm" prefWidth="191.0">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </PasswordField>
+      </children>
+    </HBox>
+    <Button fx:id="buttonCreateReg" layoutX="273.0" layoutY="277.0" mnemonicParsing="false" onAction="#registerUser" text="Create" />
+    <Label layoutX="246.0" layoutY="27.0" text="Register" textFill="#996e00">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>
