@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignPopularProjectControl">
+  <children>
+    <Label layoutX="99.0" layoutY="14.0" text="Popular Project" textFill="#996e00">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+    <TableView fx:id="tableViewPopularProject" layoutX="14.0" layoutY="67.0" prefHeight="200.0" prefWidth="372.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Column X" />
+        <TableColumn prefWidth="75.0" text="Column X" />
+      </columns>
+    </TableView>
+    <Button fx:id="buttonBack" layoutX="14.0" layoutY="331.0" mnemonicParsing="false" onAction="#returnToPrev" text="Back" />
+  </children>
+</AnchorPane>
