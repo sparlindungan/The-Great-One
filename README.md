@@ -12,14 +12,21 @@ The general code format for switching screens is as follows:
 1. Create a method to be used for switching to specified screen
 2. In JavaFX Scene Builder, set this method as the one to be run on the specified action (for button clicks, set it as the "on action" event)
 3. Use this code template in the method:
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(["sceneName.fxml"));
+        
         Parent root = fxmlLoader.load();
+        
         Stage stage = (Stage) buttonLogOut.getScene().getWindow();
+        
         Scene scene = new Scene(root);
+        
         stage.setScene(scene);
+        
         stage.show();
 4. If the page being switched to will require additional data (user name, application, etc.), add in a line to create a controller object.  Then run the method for setting the variable in the specified controller class.  Add this code after the fxmlLoader.load() line of code and before the getWindow() line of code
 EXAMPLE: code piece for loading course view page:
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneClassView.fxml"));
         Parent root = fxmlLoader.load();
         CourseSignClassViewControl cscvc = (CourseSignClassViewControl) fxmlLoader.getController();
