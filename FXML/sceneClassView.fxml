@@ -19,6 +19,6 @@
     <Label fx:id="labelDesignation" layoutX="28.0" layoutY="170.0" prefWidth="344.0" text="Course Designation Placeholder" />
     <Label fx:id="labelCategory" layoutX="28.0" layoutY="211.0" prefWidth="358.0" text="Course Category Placeholder" />
     <Label fx:id="labelClassSize" layoutX="28.0" layoutY="250.0" prefWidth="358.0" text="Course Student Count Placeholder" />
-    <Button fx:id="buttonClassBack" layoutX="172.0" layoutY="276.0" mnemonicParsing="false" text="Back" />
+    <Button fx:id="buttonClassBack" layoutX="172.0" layoutY="276.0" mnemonicParsing="false" onAction="#returnToMain" text="Back" />
   </children>
 </AnchorPane>

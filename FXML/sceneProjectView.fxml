@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignProjectViewControl">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignProjectViewControl">
   <children>
     <Label fx:id="labelProjectTitle" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefWidth="572.0" text="Project Title Placeholder" textAlignment="LEFT" textFill="#996e00">
       <font>
@@ -16,11 +16,12 @@
     </Label>
     <Label fx:id="labelAdvisor" layoutX="144.0" layoutY="63.0" prefWidth="310.0000999999975" text="Advisor Placeholder" />
     <Label fx:id="labelDescription" alignment="TOP_LEFT" layoutX="144.0" layoutY="91.0" prefHeight="99.0" prefWidth="311.0" text="Description Placeholder" wrapText="true" />
-    <Label fx:id="labelDesignation" layoutX="144.0" layoutY="200.0" prefWidth="311.0" text="Designation Placeholder" />
-    <Label layoutX="144.0" layoutY="223.0" prefWidth="311.0" text="Category Placeholder" />
-    <Label fx:id="labelRequirements" alignment="TOP_LEFT" layoutX="144.0" layoutY="247.0" prefHeight="32.0" prefWidth="311.0" text="Requirements Placeholder" />
-    <Label fx:id="labelCourseSize" layoutX="144.0" layoutY="283.0" prefWidth="311.0" text="Course Size Placeholder" />
-    <Button fx:id="buttonReturnToMain" layoutX="144.0" layoutY="316.0" mnemonicParsing="false" onAction="#returnToMain" text="Back" />
-    <Button fx:id="buttonApply" layoutX="404.0" layoutY="316.0" mnemonicParsing="false" onAction="#applyToProject" text="Apply" />
+    <Label fx:id="labelDesignation" layoutX="144.0" layoutY="219.0" prefWidth="311.0" text="Designation Placeholder" />
+    <Label fx:id="labelCategory" alignment="TOP_LEFT" layoutX="144.0" layoutY="242.0" prefHeight="77.0" prefWidth="311.0" text="Category Placeholder" wrapText="true" />
+    <Label fx:id="labelRequirements" alignment="TOP_LEFT" layoutX="144.0" layoutY="319.0" prefHeight="58.0" prefWidth="311.0" text="Requirements Placeholder" wrapText="true" />
+    <Label fx:id="labelCourseSize" layoutX="144.0" layoutY="377.0" prefWidth="311.0" text="Course Size Placeholder" wrapText="true" />
+    <Button fx:id="buttonReturnToMain" layoutX="144.0" layoutY="511.0" mnemonicParsing="false" onAction="#returnToMain" text="Back" />
+    <Button fx:id="buttonApply" layoutX="404.0" layoutY="511.0" mnemonicParsing="false" onAction="#applyToProject" text="Apply" />
+    <Label fx:id="labelErrorMessage" alignment="TOP_LEFT" layoutX="144.0" layoutY="402.0" prefHeight="99.0" prefWidth="311.0" text="Error Placeholder" textFill="RED" visible="false" wrapText="true" />
   </children>
 </AnchorPane>

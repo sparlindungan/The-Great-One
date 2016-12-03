@@ -50,11 +50,12 @@
         </PasswordField>
       </children>
     </HBox>
-    <Button fx:id="buttonCreateReg" layoutX="273.0" layoutY="277.0" mnemonicParsing="false" onAction="#registerUser" text="Create" />
+    <Button fx:id="buttonCreateReg" layoutX="273.0" layoutY="330.0" mnemonicParsing="false" onAction="#registerUser" text="Create" />
     <Label layoutX="246.0" layoutY="27.0" text="Register" textFill="#996e00">
       <font>
         <Font size="30.0" />
       </font>
     </Label>
+    <Label fx:id="labelErrorMessage" alignment="TOP_LEFT" layoutX="153.0" layoutY="247.0" prefHeight="83.0" prefWidth="297.0" text="Error Placeholder" textFill="RED" visible="false" wrapText="true" />
   </children>
 </AnchorPane>
