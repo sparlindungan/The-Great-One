@@ -1,4 +1,3 @@
-USE CS4400T81;
 CREATE TABLE Department (
 DeptName VARCHAR(255),
 PRIMARY KEY (DeptName)

@@ -1,4 +1,3 @@
-USE CS4400T81;
 /*Designations*/
 INSERT INTO Designation VALUES ("Sustainable Communities");
 INSERT INTO Designation VALUES ("Community");

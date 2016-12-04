@@ -1,4 +1,3 @@
-USE CS4400T81;
 /*Excel Peer Support Network*/
 INSERT INTO Project VALUES ("Excel Peer Support Network",60,
 "Marnie Williams","mwilliams@gatech.edu",
@@ -94,14 +93,14 @@ INSERT INTO Requirement VALUES ("Projek2", "Junior students only");
 INSERT INTO Requirement VALUES ("Projek2", "Ivan Allen College of Liberal Arts");
 
 INSERT INTO Requirement VALUES ("Projek3", "Sophomore students only");
-INSERT INTO Requirement VALUES ("Projek3", "Business Administraion students only");
+INSERT INTO Requirement VALUES ("Projek3", "Business Administration students only");
 
 INSERT INTO Requirement VALUES ("Projek4", "Freshmen students only");
 INSERT INTO Requirement VALUES ("Projek4", "Global Economics and Modern Languages students only");
 
-INSERT INTO Requirement VALUES ("Projek5", "Freshmen students only");
+INSERT INTO Requirement VALUES ("Projek5", "Freshman students only");
 INSERT INTO Requirement VALUES ("Projek5", "College of Computing students only");
-INSERT INTO Requirement VALUES ("Projek5", "Computaional Media students only");
+INSERT INTO Requirement VALUES ("Projek5", "Computational Media students only");
 
 INSERT INTO Requirement VALUES ("Projek6", "Junior students only");
 INSERT INTO Requirement VALUES ("Projek6", "Senior students only");
@@ -110,9 +109,9 @@ INSERT INTO Requirement VALUES ("Projek6", "Business Administration students onl
 
 INSERT INTO Requirement VALUES ("Projek7", "Sophomore students only");
 INSERT INTO Requirement VALUES ("Projek7", "Junior students only");
-INSERT INTO Requirement VALUES ("Projek7", "Ivan Allen College of Liberal Arts");
+INSERT INTO Requirement VALUES ("Projek7", "Ivan Allen College of Liberal Arts students only");
 INSERT INTO Requirement VALUES ("Projek7", "Economics and International Affairs students only");
-INSERT INTO Requirement VALUES ("Projek7", "History, Technology, and Society students only");
+INSERT INTO Requirement VALUES ("Projek7", "HTS students only");
 
 /*category*/
 INSERT INTO Proj_Is_Category VALUES ("Projek8", "urban development");

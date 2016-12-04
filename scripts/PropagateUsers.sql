@@ -14,6 +14,8 @@ INSERT INTO Student VALUES('student11','MEjVZQC','student11@gatech.edu','Senior'
 INSERT INTO Student VALUES('student12','kSxj9Js','student12@gatech.edu','Senior','Earth and Atmospheric Sciences',1);
 INSERT INTO Student VALUES('student13','password1','student13@gatech.edu','Freshman','Computer Science',1);
 INSERT INTO Student VALUES('student14','password2','student14@gatech.edu','Junior','Business Administration',1);
+INSERT INTO Student VALUES('student15','password3','student15@gatech.edu','Sophomore','Computer Engineering',1);
+INSERT INTO Student VALUES('student17','password5','student17@gatech.edu','Senior','Computational Media',1);
 /*Students with no degrees listed */
 INSERT INTO Student VALUES('exampleUser1','password1','eUser1@gatech.edu',NULL,NULL,1);
 INSERT INTO Student VALUES('exampleUser2','password2','eUser2@gatech.edu',NULL,NULL,1);

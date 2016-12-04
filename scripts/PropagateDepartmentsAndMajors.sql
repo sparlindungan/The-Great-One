@@ -1,4 +1,3 @@
-USE CS4400T81;
 INSERT INTO Department VALUES ("College of Computing");
 INSERT INTO Department VALUES ("College of Design");
 INSERT INTO Department VALUES ("College of Engineering");
@@ -35,8 +34,8 @@ INSERT INTO Major VALUES ("Applied Language and Intercultural Studies","Ivan All
 INSERT INTO Major VALUES ("Economics","Ivan Allen College of Liberal Arts");
 INSERT INTO Major VALUES ("Economics and International Affairs","Ivan Allen College of Liberal Arts");
 INSERT INTO Major VALUES ("Global Economics and Modern Languages","Ivan Allen College of Liberal Arts");
-INSERT INTO Major VALUES ("History, Technology, and Society","Ivan Allen College of Liberal Arts");
+INSERT INTO Major VALUES ("HTS","Ivan Allen College of Liberal Arts");
 INSERT INTO Major VALUES ("International Affairs","Ivan Allen College of Liberal Arts");
 INSERT INTO Major VALUES ("International Affairs and Modern Languages","Ivan Allen College of Liberal Arts");
-INSERT INTO Major VALUES ("Literature, Media, and Communication","Ivan Allen College of Liberal Arts");
+INSERT INTO Major VALUES ("LMC","Ivan Allen College of Liberal Arts");
 INSERT INTO Major VALUES ("Public Policy","Ivan Allen College of Liberal Arts");

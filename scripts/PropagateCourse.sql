@@ -1,4 +1,3 @@
-USE CS4400T81;
 /*ARCH 4803*/
 INSERT INTO Course VALUES ("ARCH 4803",
 "Green Infrastructure: EPA Rainwater Challenge",26,"Richard Dagenhart",
