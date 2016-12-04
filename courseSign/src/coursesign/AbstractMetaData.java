@@ -14,12 +14,12 @@ import java.sql.Statement;
  * @author Scott
  */
 public abstract class AbstractMetaData {
-    protected String url = "jdbc:mysql://localhost:3306/cs4400t81";
+    /*protected String url = "jdbc:mysql://localhost:3306/cs4400t81";
     protected String user = "root";
-    protected String password = "Yo282gNE!";
-    /*protected String url = "jdbc:mysql://academicmysql.cc.gatech.edu/cs4400_Team_81";
+    protected String password = "Yo282gNE!";*/
+    protected String url = "jdbc:mysql://academic-mysql.cc.gatech.edu/cs4400_Team_81";
     protected String user = "cs4400_Team_81";
-    protected String password = "h8SLUKjt";*/
+    protected String password = "h8SLUKjt";
     protected String query;
     protected Connection conn;
     protected Statement st;

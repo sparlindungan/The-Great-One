@@ -34,6 +34,10 @@ public class CourseSignControl extends AbstractMetaData {
     @FXML
     Label labelWelcome;
     @FXML
+    protected void initialize() throws Exception {
+	Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+	conn = DriverManager.getConnection(url, user, password);
+    }
     public void switchToReg() throws Exception {
         
         Parent root = FXMLLoader.load(getClass().getResource("sceneRegister.fxml"));
@@ -56,7 +60,7 @@ public class CourseSignControl extends AbstractMetaData {
 	}else {
             String result = "";
             conn = DriverManager.getConnection(url, user, password);
-            query = "SELECT User_Type FROM cs4400t81.Student WHERE BINARY Username= '" + uNameLoginField.getText() + "' AND BINARY Password= '" + pwdLoginField.getText() + "'";
+            query = "SELECT User_Type FROM Student WHERE BINARY Username= '" + uNameLoginField.getText() + "' AND BINARY Password= '" + pwdLoginField.getText() + "'";
             st = conn.createStatement();
             rs = st.executeQuery(query);
             while(rs.next()) {

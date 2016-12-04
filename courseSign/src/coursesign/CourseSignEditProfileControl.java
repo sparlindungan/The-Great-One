@@ -96,7 +96,7 @@ public class CourseSignEditProfileControl extends AbstractMetaData {
             if(comboBoxEditProfileMajor.getValue() == null) {
                 labelEditProfileDepartment.setText("");
             } else {
-                query = "SELECT DeptName FROM cs4400t81.Major WHERE MajorName='"
+                query = "SELECT DeptName FROM Major WHERE MajorName='"
                         + comboBoxEditProfileMajor.getValue() +"'";
                 rs = st.executeQuery(query);
                 if(rs.next()) {
@@ -108,7 +108,7 @@ public class CourseSignEditProfileControl extends AbstractMetaData {
         }
     }
     public void updateDepartment() throws Exception {
-        query = "SELECT DeptName FROM cs4400t81.Major WHERE MajorName='"
+        query = "SELECT DeptName FROM Major WHERE MajorName='"
                 + comboBoxEditProfileMajor.getValue() + "'";
                 rs = st.executeQuery(query);
                 while(rs.next()) {
@@ -116,7 +116,7 @@ public class CourseSignEditProfileControl extends AbstractMetaData {
                 }
     }
     public void saveAndReturn() throws Exception {
-        query = "UPDATE cs4400t81.Student SET MajorName=" + (comboBoxEditProfileMajor.getValue() != null ? "'"+comboBoxEditProfileMajor.getValue()+"'" : "NULL") + ","
+        query = "UPDATE Student SET MajorName=" + (comboBoxEditProfileMajor.getValue() != null ? "'"+comboBoxEditProfileMajor.getValue()+"'" : "NULL") + ","
                 + "GradYear=" + (comboBoxEditProfileYear.getValue() != null ? "'"+comboBoxEditProfileYear.getValue()+"'" : "NULL") + " WHERE Username='"
                 + uName + "'";
         st.executeUpdate(query);

@@ -67,7 +67,7 @@ public class CourseSignRegControl extends AbstractMetaData {
 	}else {
             //run query to see if user exists already
             conn = DriverManager.getConnection(url, user, password);
-            query = "SELECT Username FROM cs4400t81.Student WHERE Email= '" + textFieldRegEmail.getText() + "'";
+            query = "SELECT Username FROM Student WHERE Email= '" + textFieldRegEmail.getText() + "'";
             st = conn.createStatement();
             rs = st.executeQuery(query);
             if(rs.isBeforeFirst()) {
@@ -77,7 +77,7 @@ public class CourseSignRegControl extends AbstractMetaData {
                 //System.out.println("e-mail is already in use");
             } else {
                 //doesn't exist in User table, but need to check for username being used
-                query = "SELECT Username FROM cs4400t81.Student WHERE Username='" + 
+                query = "SELECT Username FROM Student WHERE Username='" + 
                         textFieldRegUname.getText() + "'";
                 rs = st.executeQuery(query);
                 if(rs.isBeforeFirst()) {

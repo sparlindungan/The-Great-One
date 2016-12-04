@@ -342,9 +342,14 @@ public class CourseSignMainControl extends AbstractMetaData {
 	    }
         }
         if(radioButtonBoth.isSelected() || (!(radioButtonProject.isSelected() || radioButtonCourse.isSelected()) && (comboBoxMajor.getValue() == null && comboBoxYear.getValue() == null))) {
-            query = courseSegment + " UNION " + projSegment;
+            
+	    query = courseSegment + " UNION " + projSegment;
         } else if(radioButtonCourse.isSelected() || (!(radioButtonProject.isSelected() || radioButtonCourse.isSelected()) && (comboBoxMajor.getValue() == null && comboBoxYear.getValue() == null))) {
-            query = courseSegment;
+            if(comboBoxMajor.getValue() == null && comboBoxYear.getValue() == null) {
+		query = courseSegment;
+	    } else {
+		query = "SELECT NULL LIMIT 0";
+	    }
         } else {
             query = projSegment;
         }
