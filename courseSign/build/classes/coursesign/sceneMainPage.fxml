@@ -32,10 +32,10 @@
         </Label>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="176.0" prefHeight="22.0" prefWidth="233.0">
+    <HBox layoutX="26.0" layoutY="176.0" prefHeight="22.0" prefWidth="325.0">
       <children>
         <Label text="Designation" />
-        <ComboBox fx:id="comboBoxDesignation">
+        <ComboBox fx:id="comboBoxDesignation" prefHeight="21.0" prefWidth="190.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -44,36 +44,25 @@
             </FXCollections>
           </items>
           <HBox.margin>
-            <Insets left="10.0" fx:id="x1" />
+            <Insets left="45.0" />
           </HBox.margin>
         </ComboBox>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="108.0" prefHeight="40.0" prefWidth="760.0">
+    <HBox layoutX="26.0" layoutY="108.0" prefHeight="40.0" prefWidth="371.0">
       <children>
         <Label text="Title" />
-        <TextField fx:id="textFieldTitle" prefWidth="200.0" HBox.margin="$x1" />
-        <Label text="Category">
+        <TextField fx:id="textFieldTitle" prefWidth="190.0">
           <HBox.margin>
-            <Insets left="300.0" />
+            <Insets left="85.0" fx:id="x2" />
           </HBox.margin>
-        </Label>
-        <ComboBox HBox.margin="$x1">
-          <items>
-            <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Item 1" />
-              <String fx:value="Item 2" />
-              <String fx:value="Item 3" />
-            </FXCollections>
-          </items>
-        </ComboBox>
-        <Label text="Add A Category" textFill="#3354ff" underline="true" wrapText="false" HBox.margin="$x1" />
+        </TextField>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="212.0" minHeight="16.0" prefHeight="32.0" prefWidth="233.0">
+    <HBox layoutX="26.0" layoutY="212.0" minHeight="16.0" prefHeight="32.0" prefWidth="339.0">
       <children>
         <Label text="Major" />
-        <ComboBox fx:id="comboBoxMajor">
+        <ComboBox fx:id="comboBoxMajor" prefHeight="21.0" prefWidth="190.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -82,15 +71,15 @@
             </FXCollections>
           </items>
           <HBox.margin>
-            <Insets left="43.0" />
+            <Insets left="78.0" />
           </HBox.margin>
         </ComboBox>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="252.0" prefHeight="40.0" prefWidth="200.0">
+    <HBox layoutX="26.0" layoutY="252.0" prefHeight="40.0" prefWidth="339.0">
       <children>
         <Label text="Year" />
-        <ComboBox fx:id="comboBoxYear">
+        <ComboBox fx:id="comboBoxYear" prefHeight="21.0" prefWidth="190.0" HBox.margin="$x2">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -98,9 +87,6 @@
               <String fx:value="Item 3" />
             </FXCollections>
           </items>
-          <HBox.margin>
-            <Insets left="50.0" />
-          </HBox.margin>
         </ComboBox>
       </children>
     </HBox>
@@ -120,8 +106,22 @@
             <Insets left="10.0" fx:id="x1" />
           </HBox.margin>
         </RadioButton>
-        <RadioButton fx:id="radioButtonBoth" mnemonicParsing="false" text="Both" HBox.margin="$x1" />
+        <RadioButton fx:id="radioButtonBoth" mnemonicParsing="false" text="Both">
+          <HBox.margin>
+            <Insets left="10.0" fx:id="x1" />
+          </HBox.margin>
+        </RadioButton>
       </children>
     </HBox>
+    <RadioButton fx:id="radioButtonCFG" layoutX="562.0" layoutY="112.0" mnemonicParsing="false" text="computing for good" />
+    <RadioButton id="radioButtonDGIYN" fx:id="radioButtonDGFYN" layoutX="399.0" layoutY="187.0" mnemonicParsing="false" text="doing good for your neighborhood" />
+    <RadioButton id="radioButtonTAL" fx:id="radioButtonRTAL" layoutX="397.0" layoutY="168.0" mnemonicParsing="false" text="reciprocal teaching and learning" />
+    <RadioButton fx:id="radioButtonUD" layoutX="616.0" layoutY="130.0" mnemonicParsing="false" text="urban development" />
+    <RadioButton fx:id="radioButtonAL" layoutX="400.0" layoutY="130.0" mnemonicParsing="false" text="adaptive learning" />
+    <RadioButton fx:id="radioButtonSC" layoutX="400.0" layoutY="148.0" mnemonicParsing="false" text="sustainable communities" />
+    <RadioButton fx:id="radioButtonTFSG" layoutX="597.0" layoutY="168.0" mnemonicParsing="false" text="technology for social good" />
+    <RadioButton fx:id="radioButtonCS" layoutX="514.0" layoutY="130.0" mnemonicParsing="false" text="crowd sourced" />
+    <RadioButton fx:id="radioButtonCA" layoutX="555.0" layoutY="148.0" mnemonicParsing="false" text="collaborative action" />
+    <Label layoutX="492.0" layoutY="111.0" text="Category" />
   </children>
 </AnchorPane>

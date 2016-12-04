@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignViewAppControl">
+  <children>
+    <Label layoutX="219.0" layoutY="17.0" text="Applications" textFill="#996e00">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+    <Button fx:id="buttonBack" layoutX="14.0" layoutY="366.0" mnemonicParsing="false" onAction="#returnToPrev" text="Back" />
+    <Button fx:id="buttonReject" layoutX="733.0" layoutY="366.0" mnemonicParsing="false" onAction="#rejectApplication" text="Reject" />
+    <Button fx:id="buttonAccept" layoutX="667.0" layoutY="366.0" mnemonicParsing="false" onAction="#acceptApplication" text="Accept" />
+    <TableView fx:id="tableViewApps" layoutX="14.0" layoutY="65.0" prefHeight="292.0" prefWidth="772.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Column X" />
+        <TableColumn prefWidth="75.0" text="Column X" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>

@@ -20,11 +20,7 @@ import java.sql.*;
  *
  * @author Scott
  */
-public class CourseSignControl {
-    String url = "jdbc:mysql://localhost:3306/cs4400t81";
-    String user = "root";
-    String password = "Yo282gNE!";
-    String query;
+public class CourseSignControl extends AbstractMetaData {
     @FXML
     Button regLoginButton;
     @FXML
@@ -49,12 +45,20 @@ public class CourseSignControl {
     public void loginAttempt() throws Exception {
         if(uNameLoginField.getText().equals("") || pwdLoginField.getText().equals("")) {
             System.out.println("one or more required fields is blank");
-        } else {
+	    labelError.setText("Error: one or more required fields are blank");
+	    labelError.setVisible(true);
+        } else if(uNameLoginField.getText().length() > 15){
+	    labelError.setText("Error: Username cannot be longer than 15 characters");
+	    labelError.setVisible(true);
+	} else if(pwdLoginField.getText().length() > 10 ) {
+	    labelError.setText("Error: Password cannot be longer than 10 characters");
+	    labelError.setVisible(true);
+	}else {
             String result = "";
-            Connection conn = DriverManager.getConnection(url, user, password);
-            query = "SELECT User_Type FROM cs4400t81.User WHERE Username= '" + uNameLoginField.getText() + "' AND Password= '" + pwdLoginField.getText() + "'";
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
+            conn = DriverManager.getConnection(url, user, password);
+            query = "SELECT User_Type FROM cs4400t81.Student WHERE BINARY Username= '" + uNameLoginField.getText() + "' AND BINARY Password= '" + pwdLoginField.getText() + "'";
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
             while(rs.next()) {
                 result = rs.getString(1);
             }
@@ -67,7 +71,8 @@ public class CourseSignControl {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneMainPage.fxml"));
                 Parent root = fxmlLoader.load();
                 CourseSignMainControl csmc = (CourseSignMainControl) fxmlLoader.getController();
-                csmc.initialize(uNameLoginField.getText());
+                //csmc.initialize(uNameLoginField.getText());
+		csmc.setUname(uNameLoginField.getText());
                 Stage stage = (Stage) uNameLoginField.getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

@@ -14,11 +14,11 @@
         <Font size="30.0" />
       </font>
     </Label>
-    <Label fx:id="labelViewApplications" layoutX="253.0" layoutY="72.0" text="View Applications" textFill="BLUE" underline="true" />
+    <Label fx:id="labelViewApplications" layoutX="253.0" layoutY="72.0" onMousePressed="#viewApplications" text="View Applications" textFill="BLUE" underline="true" />
     <Label fx:id="labelViewPopularProj" layoutX="227.0" layoutY="105.0" onMousePressed="#viewPopularProjects" text="View popular project report" textFill="BLUE" underline="true" />
-    <Label fx:id="labelViewAppReport" layoutX="238.0" layoutY="133.0" text="View Application report" textFill="BLUE" underline="true" />
-    <Label fx:id="labelAddProject" layoutX="264.0" layoutY="163.0" text="Add a project" textFill="BLUE" underline="true" />
-    <Label fx:id="labelAddCourse" layoutX="265.0" layoutY="200.0" text="Add a course" textFill="BLUE" underline="true" />
+    <Label fx:id="labelViewAppReport" layoutX="238.0" layoutY="133.0" onMousePressed="#viewAppReport" text="View Application report" textFill="BLUE" underline="true" />
+    <Label fx:id="labelAddProject" layoutX="264.0" layoutY="163.0" onMousePressed="#addAProject" text="Add a project" textFill="BLUE" underline="true" />
+    <Label fx:id="labelAddCourse" layoutX="265.0" layoutY="200.0" onMousePressed="#addACourse" text="Add a course" textFill="BLUE" underline="true" />
     <Button fx:id="buttonLogOut" layoutX="408.0" layoutY="216.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
   </children>
 </AnchorPane>

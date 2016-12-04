@@ -37,14 +37,14 @@ import javafx.scene.Cursor;
  *
  * @author Scott
  */
-public class CourseSignPopularProjectControl {
-    String url = "jdbc:mysql://localhost:3306/cs4400t81";
+public class CourseSignPopularProjectControl extends AbstractMetaData {
+    /*String url = "jdbc:mysql://localhost:3306/cs4400t81";
     String user = "root";
     String password = "Yo282gNE!";
     Connection conn;
     Statement st;
     ResultSet rs;
-    String query;
+    String query;*/
     public ObservableList<PopProjectView> data;
     @FXML
     TableView tableViewPopularProject;
@@ -64,7 +64,7 @@ public class CourseSignPopularProjectControl {
         TableColumn<PopProjectView, String> colName = new TableColumn("Project");
         tableViewPopularProject.getColumns().addAll(colName,colCount);
 	tableViewPopularProject.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        query = "SELECT ProjName,COUNT(ProjName) AS ProjCount FROM Application GROUP BY ProjName ORDER BY ProjCount DESC";
+        query = "SELECT ProjName,COUNT(ProjName) AS ProjCount FROM Application GROUP BY ProjName ORDER BY ProjCount DESC LIMIT 10";
 	rs = st.executeQuery(query);
         data = FXCollections.observableArrayList();
         PopProjectView projInstance;

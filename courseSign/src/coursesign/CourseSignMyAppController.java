@@ -37,23 +37,12 @@ import javafx.scene.Cursor;
  *
  * @author Scott
  */
-public class CourseSignMyAppController {
-    private String uName;
-    String url = "jdbc:mysql://localhost:3306/cs4400t81";
-    String user = "root";
-    String password = "Yo282gNE!";
-    Connection conn;
-    Statement st;
-    ResultSet rs;
-    String query;
+public class CourseSignMyAppController extends AbstractMetaData {
     public ObservableList<UserApplication> data;
     @FXML
     TableView tableViewApp;
     @FXML
     Button buttonReturnToMe;
-    public void setUname(String name) {
-        this.uName = name;
-    }
     @FXML
     protected void Initialize() throws Exception {   
     }
@@ -79,7 +68,14 @@ public class CourseSignMyAppController {
         colStatus.setCellValueFactory(new PropertyValueFactory<UserApplication,String>("status"));
         tableViewApp.setItems(data);
     }
-    public void returnToMe() {
-        
+    public void returnToMe() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneMe.fxml"));
+        Parent root = fxmlLoader.load();
+        CourseSignMeControl csmc = (CourseSignMeControl) fxmlLoader.getController();
+        csmc.setUname(uName);
+        Stage stage = (Stage) tableViewApp.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();         
     }
 }

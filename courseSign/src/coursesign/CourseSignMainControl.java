@@ -32,6 +32,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.image.ImageView;
 import javafx.beans.InvalidationListener;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 //import javafx.beans.value.InvalidationListener;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.Observable;
@@ -40,18 +42,11 @@ import javafx.scene.Cursor;
  *
  * @author Scott
  */
-public class CourseSignMainControl {
-    String url = "jdbc:mysql://localhost:3306/cs4400t81";
-    String user = "root";
-    String password = "Yo282gNE!";
-    String query;
+public class CourseSignMainControl extends AbstractMetaData {
+    List<RadioButton> catOptions;
     String majorFilter;
     String desigFilter;
     String yearFilter;
-    private String uName;
-    Connection conn;
-    Statement st;
-    ResultSet rs;
     public ObservableList<SignUp> data;
     @FXML
     ComboBox comboBoxDesignation;
@@ -76,11 +71,39 @@ public class CourseSignMainControl {
     @FXML
     ImageView imageViewUser;
     @FXML
+    RadioButton radioButtonCFG;
+    @FXML
+    RadioButton radioButtonAL;
+    @FXML
+    RadioButton radioButtonCS;
+    @FXML
+    RadioButton radioButtonCA;
+    @FXML
+    RadioButton radioButtonSC;
+    @FXML
+    RadioButton radioButtonRTAL;
+    @FXML
+    RadioButton radioButtonUD;
+    @FXML
+    RadioButton radioButtonTFSG;
+    @FXML
+    RadioButton radioButtonDGFYN;
+    @FXML
     protected void initialize() throws Exception{
         //initialize Designation combobox
         comboBoxDesignation.getItems().clear();
         comboBoxMajor.getItems().clear();
         comboBoxYear.getItems().clear();
+	catOptions = new ArrayList<RadioButton>();
+	catOptions.add(radioButtonCFG);
+	catOptions.add(radioButtonAL);
+	catOptions.add(radioButtonCS);
+	catOptions.add(radioButtonCA);
+	catOptions.add(radioButtonSC);
+	catOptions.add(radioButtonRTAL);
+	catOptions.add(radioButtonUD);
+	catOptions.add(radioButtonTFSG);
+	catOptions.add(radioButtonDGFYN);
         final ToggleGroup courseProj = new ToggleGroup();
         radioButtonCourse.setToggleGroup(courseProj);
         radioButtonProject.setToggleGroup(courseProj);
@@ -110,15 +133,12 @@ public class CourseSignMainControl {
     }
     protected void initialize(String uName) throws Exception{
         setUname(uName);
-        //initialize();
+        initialize();
     }
     public void applyFilter() throws Exception {
         //query = "SELECT CourseName AS Name FROM Course" + (comboBoxDesignation.getValue().equals("") ? "":" WHERE Designation='" + comboBoxDesignation.getValue() + "'");
         buildFilter();
         buildTable(false);
-    }
-    public void setUname(String name) {
-        this.uName = name;
     }
     private void buildTable(Boolean initBuild) throws Exception {
         tableViewMain.getItems().clear();
@@ -176,10 +196,11 @@ public class CourseSignMainControl {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneClassView.fxml"));
                 Parent root = fxmlLoader.load();
                 CourseSignClassViewControl cscvc = (CourseSignClassViewControl) fxmlLoader.getController();
-                Stage stage = (Stage) imageViewUser.getScene().getWindow();
+                cscvc.loadClass(className);
+		cscvc.setUname(uName);
+		Stage stage = (Stage) imageViewUser.getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-                cscvc.loadClass(className);
                 stage.show();
     }
     private void loadProjectView(String projName) throws Exception {
@@ -215,6 +236,7 @@ public class CourseSignMainControl {
         filterFlag = (comboBoxDesignation.getValue() == null ? filterFlag : filterFlag | 2);
         filterFlag = (comboBoxMajor.getValue() == null ? filterFlag : filterFlag | 4);
         filterFlag = (comboBoxYear.getValue() == null ? filterFlag : filterFlag | 8);
+	filterFlag = (this.checkCategoryEmpty() ? filterFlag : filterFlag | 16);
         String projSegment = "";
         String courseSegment = "";
         //query = "SELECT CourseName AS Name,'Course' As Type FROM Course UNION SELECT Project.Name AS Name,'Project' As Type FROM Project";
@@ -235,13 +257,32 @@ public class CourseSignMainControl {
                 }
                 courseSegment += "Course.Designation='" + comboBoxDesignation.getValue() + "' ";
             }
+	    if((filterFlag & 16) != 0) {
+		//categort filter
+		if((filterFlag & 15) == 0) {
+		    courseSegment += " WHERE ";
+		} else {
+		    courseSegment += " AND ";
+		}
+		courseSegment += "EXISTS (SELECT * FROM Course_Is_Category WHERE " + 
+		"CourseName=Course.CourseName AND (CatName=";
+		int catCounter = 0;
+		for(int i=0;i<catOptions.size();i++) {
+		    if(catOptions.get(i).isSelected()) {
+			courseSegment += "'"+catOptions.get(i).getText()+"' OR CatName=";
+			//catCounter++;
+		    }
+		}
+		courseSegment = courseSegment.substring(0,courseSegment.length() - 12);
+		courseSegment += "))";
+		//projSegment += ") HAVING COUNT(*)=" + catCounter+")";
+	    }
         }
         if(radioButtonProject.isSelected() || radioButtonBoth.isSelected() || !(radioButtonProject.isSelected() || radioButtonCourse.isSelected())) {
-            //add project to overall query
-            projSegment = "SELECT Project.Name AS Name, 'Project' AS Type FROM Project";
+	    projSegment = "SELECT Project.Name AS Name, 'Project' AS Type FROM Project";
             if((filterFlag & 1) != 0) {
                 //set title
-                projSegment = projSegment + " WHERE Project.Name LIKE '%" + textFieldTitle.getText() + "%' ";
+                projSegment += " WHERE Project.Name LIKE '%" + textFieldTitle.getText() + "%'";
             }
             if((filterFlag & 2) != 0) {
                 //Designation search
@@ -253,32 +294,59 @@ public class CourseSignMainControl {
                 }
                 projSegment += "Project.Designation='" + comboBoxDesignation.getValue() + "' ";
             }
-            if((filterFlag & 4) != 0) {
+	    if((filterFlag & 4) != 0) {
                 if((filterFlag & 3) == 0) {
+                    //if it's the first condition, add WHERE to it
                     projSegment += " WHERE ";
                 } else {
                     projSegment += " AND ";
                 }
-                projSegment += "'" + comboBoxMajor.getValue() + " students only' IN "
-                        + "(SELECT Requirement FROM Requirement WHERE Pname = Project.Name)";
-            }
-            if((filterFlag & 8) != 0) {
-                //year filter
+		projSegment += "    Name IN ( " +
+"        SELECT Pname FROM Requirement WHERE Requirement='"+comboBoxMajor.getValue() + " students only'" +
+"        )";
+		//Also do a department check
+		projSegment += "OR " +
+"Name IN (" +
+"    SELECT PName FROM Requirement WHERE Requirement=Concat((" +
+"    SELECT GROUP_CONCAT(DeptName) FROM Major WHERE Major.MajorName='"+comboBoxMajor.getValue() + "'),' students only'))";
+	    }
+	    if((filterFlag & 8) != 0) {
                 if((filterFlag & 7) == 0) {
+                    //if it's the first condition, add WHERE to it
                     projSegment += " WHERE ";
                 } else {
-                    projSegment += " AND ";    
+                    projSegment += " AND ";
                 }
-                projSegment += "'" + comboBoxYear.getValue() + " students only' IN "
-                        + "(SELECT Requirement FROM Requirement WHERE Pname = Project.Name)";
-            }
+		projSegment += "(Name IN ( " +
+"SELECT Pname FROM Requirement WHERE Requirement='" + comboBoxYear.getValue() + " students only'))";
+	    }
+	    if((filterFlag & 16) != 0) {
+		//categort filter
+		if((filterFlag & 15) == 0) {
+		    projSegment += " WHERE ";
+		} else {
+		    projSegment += " AND ";
+		}
+		projSegment += "EXISTS (SELECT * FROM Proj_Is_Category WHERE " + 
+		"ProjName=Project.Name AND (CatName=";
+		int catCounter = 0;
+		for(int i=0;i<catOptions.size();i++) {
+		    if(catOptions.get(i).isSelected()) {
+			projSegment += "'"+catOptions.get(i).getText()+"' OR CatName=";
+			//catCounter++;
+		    }
+		}
+		projSegment = projSegment.substring(0,projSegment.length() - 12);
+		projSegment += "))";
+		//projSegment += ") HAVING COUNT(*)=" + catCounter+")";
+	    }
         }
-        if(radioButtonBoth.isSelected() || !(radioButtonProject.isSelected() || radioButtonCourse.isSelected())) {
+        if(radioButtonBoth.isSelected() || (!(radioButtonProject.isSelected() || radioButtonCourse.isSelected()) && (comboBoxMajor.getValue() == null && comboBoxYear.getValue() == null))) {
             query = courseSegment + " UNION " + projSegment;
-        } else if(radioButtonProject.isSelected()) {
-            query = projSegment;
-        } else {
+        } else if(radioButtonCourse.isSelected() || (!(radioButtonProject.isSelected() || radioButtonCourse.isSelected()) && (comboBoxMajor.getValue() == null && comboBoxYear.getValue() == null))) {
             query = courseSegment;
+        } else {
+            query = projSegment;
         }
         /*sub-queries to add in:
         projects have requirements =>
@@ -286,6 +354,14 @@ public class CourseSignMainControl {
         Requirement='comboBoxValue + students only'
         do this for major & department
         */
+    }
+    private Boolean checkCategoryEmpty() {
+	    for(int i=0;i<catOptions.size();i++) {
+		if(catOptions.get(i).isSelected()) {
+		    return false;
+		}
+	    }
+	    return true;
     }
     public void launchMeWindow() throws Exception{
         System.out.println(uName);

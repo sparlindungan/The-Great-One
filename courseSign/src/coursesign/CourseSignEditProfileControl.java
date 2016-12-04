@@ -34,15 +34,15 @@ import javafx.scene.Cursor;
  *
  * @author Scott
  */
-public class CourseSignEditProfileControl {
-    String url = "jdbc:mysql://localhost:3306/cs4400t81";
+public class CourseSignEditProfileControl extends AbstractMetaData {
+    /*String url = "jdbc:mysql://localhost:3306/cs4400t81";
     String user = "root";
     String password = "Yo282gNE!";
     String query;
     Connection conn;
     Statement st;
     ResultSet rs;
-    private String uName;
+    private String uName;*/
     @FXML
     ComboBox comboBoxEditProfileMajor;
     @FXML
@@ -72,9 +72,9 @@ public class CourseSignEditProfileControl {
         rs.close();
         //setValue to reflect user's year
     }
-    public void setUname(String name) {
+    /*public void setUname(String name) {
         this.uName = name;
-    }
+    }*/
     public void loadUserData() throws Exception {
         query = "SELECT MajorName,GradYear FROM Student WHERE Username='" + uName +"'";
         rs = st.executeQuery(query);
@@ -99,9 +99,11 @@ public class CourseSignEditProfileControl {
                 query = "SELECT DeptName FROM cs4400t81.Major WHERE MajorName='"
                         + comboBoxEditProfileMajor.getValue() +"'";
                 rs = st.executeQuery(query);
-                while(rs.next()) {
+                if(rs.next()) {
                     labelEditProfileDepartment.setText(rs.getString("DeptName"));
-                }
+                } else {
+		    labelEditProfileDepartment.setText("");
+		}
             }
         }
     }
@@ -114,8 +116,8 @@ public class CourseSignEditProfileControl {
                 }
     }
     public void saveAndReturn() throws Exception {
-        query = "UPDATE cs4400t81.Student SET MajorName='" + comboBoxEditProfileMajor.getValue() + "',"
-                + "GradYear='" + comboBoxEditProfileYear.getValue() + "' WHERE Username='"
+        query = "UPDATE cs4400t81.Student SET MajorName=" + (comboBoxEditProfileMajor.getValue() != null ? "'"+comboBoxEditProfileMajor.getValue()+"'" : "NULL") + ","
+                + "GradYear=" + (comboBoxEditProfileYear.getValue() != null ? "'"+comboBoxEditProfileYear.getValue()+"'" : "NULL") + " WHERE Username='"
                 + uName + "'";
         st.executeUpdate(query);
         returnToMe();

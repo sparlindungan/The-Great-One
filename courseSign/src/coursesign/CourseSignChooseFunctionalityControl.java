@@ -40,6 +40,16 @@ public class CourseSignChooseFunctionalityControl {
         stage.show();
 	
     }
+    public void viewAppReport() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneAppReport.fxml"));
+        Parent root = fxmlLoader.load();
+	CourseSignAppReportControl csarc = (CourseSignAppReportControl) fxmlLoader.getController();
+	csarc.generateAppReport();
+        Stage stage = (Stage) buttonLogOut.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();  
+    }
     public void viewPopularProjects() throws Exception {
 	//go to Popular Projects screen
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("scenePopularProject.fxml"));
@@ -48,5 +58,31 @@ public class CourseSignChooseFunctionalityControl {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public void viewApplications() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneViewApp.fxml"));
+        Parent root = fxmlLoader.load();
+	CourseSignViewAppControl csvac = (CourseSignViewAppControl) fxmlLoader.getController();
+	csvac.buildTable(true);
+        Stage stage = (Stage) buttonLogOut.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();	
+    }
+    public void addACourse() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneAddCourse.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) buttonLogOut.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();	
+    }
+    public void addAProject() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneAddProject.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) buttonLogOut.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();	
     }
 }

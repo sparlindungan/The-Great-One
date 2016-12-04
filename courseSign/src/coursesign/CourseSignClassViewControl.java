@@ -34,14 +34,7 @@ import javafx.scene.Cursor;
  *
  * @author Scott
  */
-public class CourseSignClassViewControl {
-    String url = "jdbc:mysql://localhost:3306/cs4400t81";
-    String user = "root";
-    String password = "Yo282gNE!";
-    String query;
-    Connection conn;
-    Statement st;
-    ResultSet rs;
+public class CourseSignClassViewControl extends AbstractMetaData{
     @FXML
     Label labelClassNum;
     @FXML
@@ -71,5 +64,21 @@ public class CourseSignClassViewControl {
             labelDesignation.setText("Designation: "+rs.getString("Designation"));
             labelClassSize.setText("Estimated Number of Students: "+rs.getString("EstNumberStudents"));
         }
+	query = "SELECT CatName FROM Course_Is_Category WHERE CourseName='" + classNum + "'";
+	rs = st.executeQuery(query);
+	labelCategory.setText("Category: ");
+	while(rs.next()) {
+	    labelCategory.setText(labelCategory.getText() + rs.getString("CatName") + ", ");
+	}
+    }
+    public void returnToMain() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sceneMainPage.fxml"));
+        Parent root = fxmlLoader.load();
+	CourseSignMainControl csmc = (CourseSignMainControl) fxmlLoader.getController();
+	csmc.setUname(uName);
+        Stage stage = (Stage) labelClassNum.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
