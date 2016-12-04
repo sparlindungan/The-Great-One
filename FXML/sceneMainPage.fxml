@@ -30,25 +30,12 @@
             <Insets left="15.0" top="20.0" />
           </HBox.margin>
         </Label>
-        <ComboBox>
-          <items>
-            <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Item 1" />
-              <String fx:value="Item 2" />
-              <String fx:value="Item 3" />
-            </FXCollections>
-          </items>
-          <HBox.margin>
-            <Insets left="10.0" fx:id="x1" />
-          </HBox.margin>
-        </ComboBox>
-        <Label text="Add A Category" textFill="#3354ff" underline="true" wrapText="false" HBox.margin="$x1" />
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="176.0" prefHeight="22.0" prefWidth="233.0">
+    <HBox layoutX="26.0" layoutY="176.0" prefHeight="22.0" prefWidth="325.0">
       <children>
         <Label text="Designation" />
-        <ComboBox fx:id="comboBoxDesignation" HBox.margin="$x1">
+        <ComboBox fx:id="comboBoxDesignation" prefHeight="21.0" prefWidth="190.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -56,19 +43,26 @@
               <String fx:value="Item 3" />
             </FXCollections>
           </items>
+          <HBox.margin>
+            <Insets left="45.0" />
+          </HBox.margin>
         </ComboBox>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="108.0" prefHeight="40.0" prefWidth="241.0">
+    <HBox layoutX="26.0" layoutY="108.0" prefHeight="40.0" prefWidth="371.0">
       <children>
         <Label text="Title" />
-        <TextField fx:id="textFieldTitle" prefWidth="200.0" HBox.margin="$x1" />
+        <TextField fx:id="textFieldTitle" prefWidth="190.0">
+          <HBox.margin>
+            <Insets left="85.0" fx:id="x2" />
+          </HBox.margin>
+        </TextField>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="212.0" minHeight="16.0" prefHeight="32.0" prefWidth="233.0">
+    <HBox layoutX="26.0" layoutY="212.0" minHeight="16.0" prefHeight="32.0" prefWidth="339.0">
       <children>
         <Label text="Major" />
-        <ComboBox fx:id="comboBoxMajor">
+        <ComboBox fx:id="comboBoxMajor" prefHeight="21.0" prefWidth="190.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -77,15 +71,15 @@
             </FXCollections>
           </items>
           <HBox.margin>
-            <Insets left="43.0" />
+            <Insets left="78.0" />
           </HBox.margin>
         </ComboBox>
       </children>
     </HBox>
-    <HBox layoutX="26.0" layoutY="252.0" prefHeight="40.0" prefWidth="200.0">
+    <HBox layoutX="26.0" layoutY="252.0" prefHeight="40.0" prefWidth="339.0">
       <children>
         <Label text="Year" />
-        <ComboBox fx:id="comboBoxYear">
+        <ComboBox fx:id="comboBoxYear" prefHeight="21.0" prefWidth="190.0" HBox.margin="$x2">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -93,9 +87,6 @@
               <String fx:value="Item 3" />
             </FXCollections>
           </items>
-          <HBox.margin>
-            <Insets left="50.0" />
-          </HBox.margin>
         </ComboBox>
       </children>
     </HBox>
