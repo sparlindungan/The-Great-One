@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignMeControl">
+  <children>
+    <Label layoutX="179.0" layoutY="34.0" text="Me" textFill="#996e00">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+    <Label fx:id="labelEditProfile" layoutX="152.0" layoutY="125.0" onMouseEntered="#setMouseClickable" onMouseExited="#setMouseNormal" onMousePressed="#editProfile" text="Edit Profile" textFill="BLUE" underline="true">
+      <font>
+        <Font size="20.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label fx:id="labelMyApplication" font="$x1" layoutX="133.0" layoutY="187.0" onMousePressed="#viewMyApp" text="My Application" textFill="BLUE" underline="true" />
+    <Button fx:id="buttonReturnToMain" layoutX="173.0" layoutY="268.0" mnemonicParsing="false" onAction="#returnToMain" text="Back" />
+  </children>
+</AnchorPane>

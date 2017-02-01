@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignAddProjectControl">
+  <children>
+    <Label layoutX="109.0" layoutY="14.0" text="Add A Project" textFill="#996e00">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </Label>
+    <TextField id="labelAdvisor" fx:id="textFieldAdvisor" layoutX="97.0" layoutY="91.0" prefWidth="271.0" />
+    <Label layoutX="44.0" layoutY="94.0" text="Advisor" />
+    <TextField id="labelTitle" fx:id="textFieldTitle" layoutX="97.0" layoutY="64.0" prefWidth="271.0" />
+    <Label layoutX="61.0" layoutY="67.0" text="Title" />
+    <Label layoutX="12.0" layoutY="126.0" text="Advisor Email" />
+    <Label layoutX="23.0" layoutY="153.0" text="Description" />
+    <TextField fx:id="textFieldAdvisorEmail" layoutX="97.0" layoutY="123.0" prefWidth="271.0" />
+    <TextArea fx:id="textAreaDescription" layoutX="97.0" layoutY="153.0" prefWidth="271.0" wrapText="true" />
+    <Label layoutX="36.0" layoutY="339.0" text="Category" />
+    <RadioButton fx:id="radioButtonCFG" layoutX="97.0" layoutY="339.0" mnemonicParsing="false" text="computing for good" />
+    <RadioButton id="radioButtonDGIYN" fx:id="radioButtonDGFYN" layoutX="32.0" layoutY="403.0" mnemonicParsing="false" text="doing good for your neighborhood" />
+    <RadioButton id="radioButtonTAL" fx:id="radioButtonRTAL" layoutX="196.0" layoutY="371.0" mnemonicParsing="false" text="reciprocal teaching and learning" />
+    <RadioButton fx:id="radioButtonUD" layoutX="32.0" layoutY="387.0" mnemonicParsing="false" text="urban development" />
+    <RadioButton fx:id="radioButtonAL" layoutX="255.0" layoutY="339.0" mnemonicParsing="false" text="adaptive learning" />
+    <RadioButton fx:id="radioButtonSC" layoutX="32.0" layoutY="371.0" mnemonicParsing="false" text="sustainable communities" />
+    <RadioButton fx:id="radioButtonTFSG" layoutX="194.0" layoutY="387.0" mnemonicParsing="false" text="technology for social good" />
+    <RadioButton fx:id="radioButtonCS" layoutX="97.0" layoutY="355.0" mnemonicParsing="false" text="crowd sourced" />
+    <RadioButton fx:id="radioButtonCA" layoutX="255.0" layoutY="355.0" mnemonicParsing="false" text="collaborative action" />
+    <Label layoutX="18.0" layoutY="436.0" text="Designation" />
+    <ComboBox fx:id="comboBoxDesignation" layoutX="152.0" layoutY="433.0" prefHeight="21.0" prefWidth="216.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Label layoutX="18.0" layoutY="464.0" text="Estimated # of Students" />
+    <Label layoutX="18.0" layoutY="494.0" text="Major Requirement" />
+    <Label layoutX="18.0" layoutY="524.0" text="Year Requirement" />
+    <Label layoutX="20.0" layoutY="554.0" text="Department Requirement" />
+    <TextField fx:id="textFieldClassSize" layoutX="152.0" layoutY="461.0" prefWidth="216.0" />
+    <ComboBox fx:id="comboBoxMajor" layoutX="152.0" layoutY="492.0" prefHeight="21.0" prefWidth="216.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="comboBoxYear" layoutX="152.0" layoutY="522.0" prefHeight="21.0" prefWidth="216.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="comboBoxDepartment" layoutX="162.0" layoutY="552.0" prefHeight="21.0" prefWidth="206.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Button id="buttonReturnToPrev" fx:id="buttonBack" layoutX="18.0" layoutY="665.0" mnemonicParsing="false" onAction="#returnToPrev" text="Back" />
+    <Button fx:id="buttonSubmit" layoutX="312.0" layoutY="665.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+    <Label fx:id="labelErrorMessage" alignment="TOP_LEFT" layoutX="18.0" layoutY="573.0" prefHeight="92.0" prefWidth="350.0" text="Error Message Placeholder" textFill="RED" visible="false" wrapText="true" />
+  </children>
+</AnchorPane>

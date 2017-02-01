@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="coursesign.CourseSignControl">
+  <children>
+    <Button fx:id="loginButton" layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#loginAttempt" prefWidth="64.0" text="Log In" />
+    <Button fx:id="regLoginButton" layoutX="530.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchToReg" text="Register" />
+    <HBox layoutX="172.0" layoutY="164.0" prefHeight="22.0" prefWidth="256.0">
+      <children>
+        <Label text="Username:" />
+        <TextField id="uNameRegField" fx:id="uNameLoginField" prefWidth="200.0" />
+      </children>
+    </HBox>
+    <HBox layoutX="172.0" layoutY="210.0" prefHeight="22.0" prefWidth="256.0">
+      <children>
+        <Label text="Password:" />
+        <PasswordField fx:id="pwdLoginField" prefWidth="200.0" />
+      </children>
+    </HBox>
+    <Label fx:id="labelError" alignment="TOP_LEFT" layoutX="171.0" layoutY="104.0" prefHeight="48.0" prefWidth="256.0" text="Placeholder error text" textFill="RED" visible="false" wrapText="true" />
+    <Label fx:id="labelWelcome" alignment="CENTER" layoutX="149.0" layoutY="26.0" prefHeight="46.0" prefWidth="302.0" text="Welcome" textFill="#996e00">
+      <font>
+        <Font size="24.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>
